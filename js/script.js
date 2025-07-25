@@ -109,8 +109,7 @@ function init_App() {
 
       if(data.success){
 
-        // clear all old form errors
-        responseFields.forEach((e) => e.innerHTML = "");
+        responseFields.forEach((e) => e.innerHTML = ""); // clear all old form errors
 
         // print successful message
         const msgbody = messageForm.querySelector(".response-body");
@@ -183,10 +182,7 @@ function init_App() {
 
   const hTL = gsap.timeline();
   hTL.from("#hero-section .wrapper-texts", {y:-50, opacity:0, scale:0.9, duration:1})
-  .call(()=>{
-    console.log("now in next");
-    document.querySelector("body").classList.add('show-header')
-  });
+  .call(()=>document.querySelector("body").classList.add('show-header'));
 
   gsap.utils.toArray(".fade-in").forEach(element => {
     gsap.from(element, {
@@ -216,7 +212,7 @@ function init_App() {
   });
 
   gsap.from(".tech-skill", {
-    duration: .75, 
+    duration: .5, 
     scale: 0.8,
     opacity: 0, 
     stagger: 0.1, 
@@ -229,10 +225,24 @@ function init_App() {
   
   });
 
+  gsap.from(".project-card", {
+    duration: .75, 
+    scale: 0.8,
+    opacity: 0, 
+    stagger: 0.1, 
+    ease: "power3.inOut",
+    scrollTrigger: {
+      trigger: ".project-card",
+      start: "top 70%",
+      toggleActions: "play none none reset",
+    }
+  
+  });
+
   gsap.from(".form-field", {
     y: 50,
-    duration: 1,
-    stagger: 0.15, 
+    duration: 0.5,
+    stagger: 0.07, 
     ease: "power3.inOut",
     scrollTrigger: {
       trigger: ".form-field",
@@ -243,9 +253,6 @@ function init_App() {
   });
 
 }
-
-
-
 
 
 

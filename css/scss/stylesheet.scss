@@ -17,7 +17,7 @@ html[data-theme='light'] {
         }
     }
 
-    .btn.btn-primary {
+    .myBtn.myBtn-primary {
         color: rgba(255, 255, 255, 0.815);
     }
 }
@@ -356,7 +356,7 @@ body {
             flex-direction: row;
         }
 
-        .card {
+        .card-about {
             background-color: var(--bg-light);
             padding: 2rem 1.5rem;
             border-top-right-radius: 32px;
@@ -748,10 +748,6 @@ body {
         }
     }
 
-    .carousel-track {
-        width: 100%;
-        overflow: hidden;
-    }
     .wrapper-items {
         display: flex;
         flex-direction: row;
@@ -759,7 +755,7 @@ body {
         gap: 1rem;
         transition: transform 0.5s ease-in-out;
     }
-    .carousel-item {
+    .review-card {
         padding: 24px 42px;
         border: 1px solid var(--bg-light);
         border-top-left-radius: 16px;
@@ -774,8 +770,7 @@ body {
         max-width: 580px;
 
         @media(min-width:$breakpoint-lg) {
-            width: 33%;
-            padding: 32px 42px;
+            padding: 48px;
         }
 
         &.active {
@@ -788,7 +783,7 @@ body {
 
             &::before {
                 display: inline-block;
-                content: "\"";
+                content: "\201B";
                 font-size: 45px;
                 position: absolute;
                 top: -13px;
@@ -822,23 +817,62 @@ body {
             min-width: 100%;
         }
     }
+    .carousel-inner {
+        min-height: 260px;
+
+        @media (min-width:$breakpoint-xs) {
+            min-height: 220px;
+        }
+
+        @media (min-width:$breakpoint-lg) {
+            min-height: 290px;
+        }
+    }
+    .wrapper-controls {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+    .carousel-control {
+        position: static;
+        width: auto;
+        height: 40px;
+        width: 40px;
+        line-height: 40px;
+        border-radius: 4px;
+        background-color: var(--bg-light);
+        color: var(--accent-color);
+
+        &.carousel-control-prev::before {
+            content: "\f0d9";
+        }
+        &.carousel-control-next::after {
+            content: "\f0da";
+        }
+    }
     .carousel-indicators {
         display: flex;
-        gap: 1rem;
+        gap: 0.35rem;
+        position: static; //overrides bs style
+        margin: 0; //overrides bs style
+
 
         .indicator {
             display: block;
             height: 20px;
             width: 20px;
             border-radius: 50%;
-            border: 1px solid  var(--bg-light);
+            border: 2px solid  var(--bg-light);
             position: relative;
+            background-color: transparent;
 
             &.active::before {
                 display: block;
                 content: "";
-                height: 60%;
-                width: 60%;
+                height: 50%;
+                width: 50%;
                 background-color: var(--primary-color);
                 position: absolute;
                 top: 50%;
@@ -877,6 +911,10 @@ body {
         top: 0;
         background-color: var(--bg-dark);
         z-index: 0;
+
+        @media(min-width: $breakpoint-lg) {
+            height: 130px;
+        }
     }
 
     .direct-message {
@@ -906,7 +944,7 @@ body {
         }
 
         @media (min-width: $breakpoint-lg) {
-            border-radius: 48px;
+            border-radius: 32px;
             padding: 3rem 4rem;
             
         }
